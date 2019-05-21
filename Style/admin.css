@@ -1,0 +1,38 @@
+.btn-group {
+    float: left;
+}
+
+div.inline {
+    float:left;
+}
+
+div {
+    margin: auto;
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.dropdown{
+    padding: 0 10px 0 0;
+}
+
+.navbar {
+    margin:0;
+}
+
+body {
+    background-color: #F4F4F4;
+    padding-top: 50px;
+}
+
+.jumbotron {
+    background-color: #C0B283;
+}
+
+.table tbody tr:hover td, .table tbody tr:hover th {
+    background-color: #FFFFFF;
+}

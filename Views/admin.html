@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Admin page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- Style -->
+        <link rel="stylesheet" type="text/css" href="../Style/admin.css">
+
+        <!-- local js -->
+        <script src="../JavaScript/admin.js"></script>
+
+    </head>
+
+    <body>
+        <!-- Webpage -->
+        <div id="page">
+            <nav class="navbar navbar-inverse navbar-fixed-top">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="">Events 2017</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav">
+                            <li><a href="/events2017/index.html">Events Search</a></li>
+                            <li class="active"><a href=''>Admin</a></li>
+                            <li id="logoutBtn"><a href=''>Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="jumbotron text-center">
+                <h1>Admin</h1>
+                <p>This page allows Venues to be added, Events to be added to Venues, and for all Events and Venues to be listed</p>
+            </div>
+
+            <!-- Add venue Bar -->
+            <div class="container" id="addVenueBar">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2>Add Venues</h2>
+                        <form class="form-horizontal" id="venueForm" method="POST">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="v_name">Name:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="v_name" placeholder="Enter Name (Required)" name="v_name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="v_postcode">Postcode:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="v_postcode" placeholder="Enter Postcode (Optional)" name="v_postcode">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="v_town">Town:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="v_town" placeholder="Enter Town (Optional)" name="v_town">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="v_url">URL:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="v_url" placeholder="Enter URL (Optional)" name="v_url">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="v_icon">Icon:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="v_icon" placeholder="Enter Icon (Optional)" name="v_icon">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="button" class="btn btn-default" id="venueAddBtn">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Add event to Venue Bar -->
+            <div class="container" id="addEventToVenueBar">
+                <div class="row">
+                    <!-- left hand side is search bar -->
+                    <div class="col-sm-12">
+                        <h2>Add Events to Venues</h2>
+                        <form class="form-horizontal" id="eventForm" method="POST">
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="e_id">ID:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="e_id" placeholder="Enter Event ID (Required)" name="e_id">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="e_title">Title:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="e_title" placeholder="Enter Event Title (Required)" name="e_title">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="v_id">Venue ID:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="v_id" placeholder="Enter Venue ID (Required)" name="v_id">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2">Date:</label>
+
+                                <div class="col-sm-10">
+                                    <div class="inline">
+                                        <div class="dropdown">
+                                            <!-- dropdown menu to select day -->
+                                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id="day">Day
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu scrollable-menu" role="menu">
+                                                <li class="dayselect"><a href="#">01</a></li>
+                                                <li class="dayselect"><a href="#">02</a></li>
+                                                <li class="dayselect"><a href="#">03</a></li>
+                                                <li class="dayselect"><a href="#">04</a></li>
+                                                <li class="dayselect"><a href="#">05</a></li>
+                                                <li class="dayselect"><a href="#">06</a></li>
+                                                <li class="dayselect"><a href="#">07</a></li>
+                                                <li class="dayselect"><a href="#">08</a></li>
+                                                <li class="dayselect"><a href="#">09</a></li>
+                                                <li class="dayselect"><a href="#">10</a></li>
+                                                <li class="dayselect"><a href="#">11</a></li>
+                                                <li class="dayselect"><a href="#">12</a></li>
+                                                <li class="dayselect"><a href="#">13</a></li>
+                                                <li class="dayselect"><a href="#">14</a></li>
+                                                <li class="dayselect"><a href="#">15</a></li>
+                                                <li class="dayselect"><a href="#">16</a></li>
+                                                <li class="dayselect"><a href="#">17</a></li>
+                                                <li class="dayselect"><a href="#">18</a></li>
+                                                <li class="dayselect"><a href="#">19</a></li>
+                                                <li class="dayselect"><a href="#">20</a></li>
+                                                <li class="dayselect"><a href="#">21</a></li>
+                                                <li class="dayselect"><a href="#">22</a></li>
+                                                <li class="dayselect"><a href="#">23</a></li>
+                                                <li class="dayselect"><a href="#">24</a></li>
+                                                <li class="dayselect"><a href="#">25</a></li>
+                                                <li class="dayselect"><a href="#">26</a></li>
+                                                <li class="dayselect"><a href="#">27</a></li>
+                                                <li class="dayselect"><a href="#">28</a></li>
+                                                <li class="dayselect"><a href="#">29</a></li>
+                                                <li class="dayselect"><a href="#">30</a></li>
+                                                <li class="dayselect"><a href="#">31</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="inline">
+                                        <div class="dropdown">
+                                            <!-- dropdown menu to select month -->
+                                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id="month">Month
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu scrollable-menu" role="menu">
+                                                <li class="monthselect"><a href="#">01</a></li>
+                                                <li class="monthselect"><a href="#">02</a></li>
+                                                <li class="monthselect"><a href="#">03</a></li>
+                                                <li class="monthselect"><a href="#">04</a></li>
+                                                <li class="monthselect"><a href="#">05</a></li>
+                                                <li class="monthselect"><a href="#">06</a></li>
+                                                <li class="monthselect"><a href="#">07</a></li>
+                                                <li class="monthselect"><a href="#">08</a></li>
+                                                <li class="monthselect"><a href="#">09</a></li>
+                                                <li class="monthselect"><a href="#">10</a></li>
+                                                <li class="monthselect"><a href="#">11</a></li>
+                                                <li class="monthselect"><a href="#">12</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="inline">
+                                        <div class="dropdown">
+                                            <!-- dropdown menu to select year -->
+                                            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" id="year">Year
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu scrollable-menu" role="menu" id="yeardropdown">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="e_url">URL:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="e_url" placeholder="Enter URL (Optional)" name="e_url">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-sm-2" for="e_blurb">Blurb:</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="e_blurb" placeholder="Enter Blurb (Optional)" name="e_blurb">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-offset-2 col-sm-10">
+                                    <button type="button" class="btn btn-default" id="eventAddBtn">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row for buttons to get all venues/events -->
+            <div class="container" id="buttonBar">
+                <div class="row">
+                    <!-- get all events/venues -->
+                    <div class="col-sm-12">
+                        <h2 class="text-left">View all Events/Venues</h2>
+                        <div class="btn-group">
+                            <button class="btn btn-default inline" id="getVenues" type="button">Venues</button>
+                            <button class="btn btn-default inline" id="getEvents" type="button">Events</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- data row for get buttons -->
+            <div class="container">
+                <div class="row">
+                    <!-- venues data column -->
+                    <div class="col-sm-6">
+                        <h2 class="text-center" id="headerGetVenues"></h2>
+                        <div id="viewListVenues">
+                            <p id="venuesListCSS"></p>
+                        </div>
+                    </div>
+                    <!-- events data column -->
+                    <div class="col-sm-6">
+                        <h2 class="text-center" id="headerGetEvents"></h2>
+                        <div id="viewListEvents">
+                            <p id="eventsListCSS"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="container">
+                <div class="text-center">
+                    <footer> <br><br> Copyright &#169; William Elias 2017</footer>
+                </div>
+            </div>
+        </div>
+
+        <!-- JQuery Script -->
+        <script type="text/javascript">
+
+        </script>
+    </body>
+</html>

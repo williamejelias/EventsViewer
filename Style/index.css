@@ -1,0 +1,50 @@
+div.inline {
+    float:left;
+}
+
+div {
+    margin: auto;
+}
+
+.dropdown, .dateLine {
+    padding: 0 2px 0 0;
+}
+
+ul {
+    margin-left: 1em;
+}
+
+table {
+    border-collapse:collapse;
+    table-layout:fixed;
+    width:310px;
+}
+
+table td {
+    border:solid 1px #fab;
+    width:100px;
+    word-wrap:break-word;
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.navbar {
+    margin:0;
+}
+
+body {
+    background-color: #F4F4F4;
+    padding-top: 50px;
+}
+
+.jumbotron {
+    background-color: #9099A2;
+}
+
+.table tbody tr:hover td, .table tbody tr:hover th {
+    background-color: #FFFFFF;
+}
