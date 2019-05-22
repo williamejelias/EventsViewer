@@ -527,7 +527,7 @@ function checkParametersAddVenue(name) {
 
 function checkParametersLogin(user, pass) {
     const account = {
-        username: 'william',
+        username: 'user',
         password: 'password'
     };
     // if username and password match up then return true
