@@ -14,6 +14,36 @@
         "icon": "http://www.yha.org.uk/sites/all/themes/yha/images/logos/yha_header_logo.png",
         "venue_id": "v_1"
       }
+    },
+    {
+      "event_id": "e_2",
+      "title": "Glastonbury 2018",
+      "blurb": "The biggest and best concertina weekend in the world. Held each May in Glastonbury",
+      "date": "2018-04-16T11:00:00Z",
+      "url": "http://www.glastonbury.org.uk",
+      "venue": {
+        "name": "Glastonbury Youth Hostel",
+        "postcode": "G6H 6BS",
+        "town": "Wells",
+        "url": "http://www.yha.org.uk/hostel/blah-lodge",
+        "icon": "http://www.yha.org.uk/sites/all/themes/yha/images/logos/yha_header_logo.png",
+        "venue_id": "v_1"
+      }
+    },
+    {
+      "event_id": "e_3",
+      "title": "St Paul's Cathedral 2013",
+      "blurb": "The biggest and best concertina weekend in the world. Held each May in London",
+      "date": "2013-01-21T16:00:00Z",
+      "url": "http://www.Cathedral.org.uk",
+      "venue": {
+        "name": "Cathedral Hostel",
+        "postcode": "CU7 7HBB",
+        "town": "Cathedral",
+        "url": "http://www.yha.org.uk/hostel/Cathedral-lodge",
+        "icon": "http://www.yha.org.uk/sites/all/themes/yha/images/logos/yha_header_logo.png",
+        "venue_id": "v_2"
+      }
     }
   ]
 }
