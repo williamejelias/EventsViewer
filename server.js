@@ -23,12 +23,12 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 /* set base url to deliver index.html page */
 app.get('/events2017/index.html', function(req, resp) {
-    resp.writeHead(200, {'Content-Type': 'text/html'});
-    fs.readFile('./index.html', null, function(error, data) {
+    fs.readFile('../Views/index.html', null, function(error, data) {
         if (error) {
             resp.writeHead(404);
             resp.write('File not found');
         } else {
+            resp.writeHead(200, {'Content-Type': 'text/html'});
             resp.write(data);
         }
         resp.end();
@@ -37,12 +37,12 @@ app.get('/events2017/index.html', function(req, resp) {
 
 /* set base url to deliver login.html page */
 app.get('/events2017/login.html', function(req, resp) {
-    resp.writeHead(200, {'Content-Type': 'text/html'});
-    fs.readFile('./login.html', null, function(error, data) {
+    fs.readFile('../Views/login.html', null, function(error, data) {
         if (error) {
             resp.writeHead(404);
             resp.write('File not found');
         } else {
+            resp.writeHead(200, {'Content-Type': 'text/html'});
             resp.write(data);
         }
         resp.end();
@@ -51,12 +51,12 @@ app.get('/events2017/login.html', function(req, resp) {
 
 /* set base url to deliver admin.html page */
 app.get('/events2017/admin.html', function(req, resp) {
-    resp.writeHead(200, {'Content-Type': 'text/html'});
-    fs.readFile(('./admin.html'), null, function(error, data) {
+    fs.readFile(('../Views/admin.html'), null, function(error, data) {
         if (error) {
             resp.writeHead(404);
             resp.write('File not found');
         } else {
+            resp.writeHead(200, {'Content-Type': 'text/html'});
             resp.write(data);
         }
         resp.end();
