@@ -94,6 +94,7 @@ function performSearchEventfulAPI(searchTerm, dateTerm) {
 /* when a key is pressed in search box, perform live search function */
 const $searchBox = $('#searchBox');
 $searchBox.on("input", function() {
+    console.log("typing into box");
     if ($(this).val() === '') {
         searchTxt = '';
     } else {

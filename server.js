@@ -17,13 +17,16 @@ const secret = 'secret';
 
 console.log(ip.address());
 
+app.use('/static', express.static('static'));
+
+
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 /* set base url to deliver index.html page */
 app.get('/events2017/index.html', function(req, resp) {
-    fs.readFile('../Views/index.html', null, function(error, data) {
+    fs.readFile('./Views/index.html', null, function(error, data) {
         if (error) {
             resp.writeHead(404);
             resp.write('File not found');
@@ -37,7 +40,7 @@ app.get('/events2017/index.html', function(req, resp) {
 
 /* set base url to deliver login.html page */
 app.get('/events2017/login.html', function(req, resp) {
-    fs.readFile('../Views/login.html', null, function(error, data) {
+    fs.readFile('./Views/login.html', null, function(error, data) {
         if (error) {
             resp.writeHead(404);
             resp.write('File not found');
@@ -51,7 +54,7 @@ app.get('/events2017/login.html', function(req, resp) {
 
 /* set base url to deliver admin.html page */
 app.get('/events2017/admin.html', function(req, resp) {
-    fs.readFile(('../Views/admin.html'), null, function(error, data) {
+    fs.readFile(('./Views/admin.html'), null, function(error, data) {
         if (error) {
             resp.writeHead(404);
             resp.write('File not found');
